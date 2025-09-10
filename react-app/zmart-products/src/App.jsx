@@ -23,7 +23,7 @@ function App() {
     width:menu_width,
     backgroundColor:"rgba(109, 75, 75, 0.39)",
     fontFamily: '"Times New Roman", Times, serif',
-    fontSize:"20px",
+    fontSize:"50px",
 
 
   }
