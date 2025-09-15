@@ -1,8 +1,49 @@
 const express = require('express');
 const path = require('path');
 const { engine } = require('express-handlebars'); // ✅ updated import
-
 const app = express();
+const mongoose=require("mongoose");
+const User=require("./models/users.models")
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// establishign connection to db from my atlas
+mongoose.connect('mongodb+srv://ameen:kingboss110@cluster1.wu5omt5.mongodb.net/zmart?retryWrites=true&w=majority&appName=Cluster1', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => { 
+    console.log("✅ Connected to MongoDB Atlas");
+})
+.catch((err) => {
+    console.error("❌ Database connection error:", err);
+});
+/*mongoose.connect('mongodb://127.0.0.1:27017/zmart', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => { 
+    console.log("✅ Connected to local MongoDB");
+})
+.catch((err) => {
+    console.error("❌ Database connection error:", err);
+});*/
+app.post('/register', async (req,res)=>
+  {
+    try
+          {
+  const user= await User.create(req.body);
+  res.render('home-zm');
+  
+
+          }
+catch (err){
+      res.status(400).json({ error: err.message });
+
+           }
+}
+)
 
 // --------------------
 // Handlebars setup
