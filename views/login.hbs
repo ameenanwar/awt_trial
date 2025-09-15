@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: Times New Roman, Serif;
+        background: white;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: Times New Roman, Serif;
+        color: black;
+        margin-bottom: 20px; /* Add space below the heading */
+      }
+
+      .login-container {
+        background: #f4f4f4;
+        padding: 60px;
+        border-radius: 12px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: 350px;
+        text-align: center;
+        margin-bottom: 20px; /* Space below the login container */
+      }
+
+      .login-container h2 {
+        margin-bottom: 20px;
+      }
+
+      .login-container input {
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .login-container a {
+        display: block;
+        margin: 10px 0;
+        text-decoration: none;
+        color: black;
+        font-size: 14px;
+      }
+
+      .login-container a:hover {
+        font-size: 16px;
+        color: #007BFF;
+      }
+
+      .login-container button {
+        width: 100%;
+        padding: 10px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .login-container button:hover {
+        background: black;
+      }
+
+      .google-login {
+        margin-top: 10px;
+        background: #db4437;
+      }
+
+      .password-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .toggle-checkbox {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #555;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .toggle-checkbox input {
+        margin-right: 5px;
+      }
+
+      .signup-text {
+        font-size: 14px;
+        color: black;
+      }
+
+      .signup-text a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .signup-text a:hover {
+        font-size: 20px;
+        color: #007BFF;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Z-MaRT</h1>
+    <div class="login-container">
+      <h2 class="title">Log-In</h2>
+      <form method="POST">
+        <input type="email" name="email" placeholder="E-mail address" required>
+        <div class="password-wrapper">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <label class="toggle-checkbox">
+            <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()"> Show Password
+          </label>
+        </div>
+        <a href="#">Forgot Password?</a>
+        <button type="submit">Sign-In</button>
+        <button class="google-login" type="button">Login with Google</button>
+      </form>
+    </div>
+    <div class="signup-text">
+      Don't have an account? <a href="/register">Sign-Up</a>
+    </div>
+    <script>
+      function togglePasswordVisibility() {
+        const passwordField = document.getElementById('password');
+        const checkbox = document.getElementById('show-password');
+        if (checkbox.checked) {
+          passwordField.type = 'text';
+        } else {
+          passwordField.type = 'password';
+        }
+      }
+    </script>
+    
+  </body>
+</html>

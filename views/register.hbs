@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign-Up | Z-MaRT</title>
+    <style>
+      body {
+        font-family: Times New Roman, Serif;
+        background: white;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: Times New Roman, Serif;
+        color: black;
+        margin-bottom: 20px;
+      }
+
+      .register-container {
+        background: #f4f4f4;
+        padding: 60px;
+        border-radius: 12px;
+        box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .register-container h2 {
+        margin-bottom: 20px;
+      }
+
+      .register-container input {
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .register-container button {
+        width: 100%;
+        padding: 10px;
+        background: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
+
+      .register-container button:hover {
+        background: black;
+      }
+
+      .google-login {
+        margin-top: 10px;
+        background: #db4437;
+      }
+
+      .signup-text {
+        font-size: 14px;
+        color: black;
+      }
+
+      .signup-text a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .signup-text a:hover {
+        font-size: 20px;
+        color: #007BFF;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        var password = document.forms["registerForm"]["password"].value;
+        var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
+        if (password !== confirmPassword) {
+          alert("Passwords do not match!");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Z-MaRT</h1>
+    <div class="register-container">
+      <h2 class="title">Sign-Up</h2>
+      <form name="registerForm" method="post" onsubmit="return validateForm()">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="E-mail address" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit">Sign-Up</button>
+        <button class="google-login" type="button">Sign up with Google</button>
+      </form>
+    </div>
+    <div class="signup-text">
+      Already have an account? <a href="login.html">Log-In</a>
+    </div>
+  </body>
+</html>
