@@ -19,16 +19,6 @@ mongoose.connect('mongodb+srv://ameen:kingboss110@cluster1.wu5omt5.mongodb.net/z
 .catch((err) => {
     console.error("❌ Database connection error:", err);
 });
-/*mongoose.connect('mongodb://127.0.0.1:27017/zmart', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => { 
-    console.log("✅ Connected to local MongoDB");
-})
-.catch((err) => {
-    console.error("❌ Database connection error:", err);
-});*/
 app.post('/register', async (req,res)=>
   {
     try
