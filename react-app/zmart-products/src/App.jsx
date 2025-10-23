@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import Top_bar from './Top_bar/Top_bar.jsx'
-import Side_bar from './Side_bar/Side_bar.jsx'
-import Az_clone from './Az_clone/Az_clone.jsx'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Az_clone from "./pages/Az_clone.jsx";
+import Groceries from "./pages/Groceries.jsx";
+import Gadgets from "./pages/Gadgets.jsx";
+import Books from "./pages/Books.jsx";
+
 function App() {
-  
- 
-
   return (
-
-    <>
-    <Az_clone></Az_clone>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Az_clone />} />
+      <Route path="/groceries" element={<Groceries />} />
+      <Route path="/gadgets" element={<Gadgets />} />
+      <Route path="/books" element={<Books />} />
+    </Routes>
+  );
 }
 
 export default App;

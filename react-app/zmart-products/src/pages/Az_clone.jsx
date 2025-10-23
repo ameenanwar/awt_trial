@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Top_bar from '../Top_bar/Top_bar';
-import Side_bar from '../Side_bar/Side_bar';
+import Top_bar from '../Components/Top_bar';
+import Side_bar from '../Components/Side_bar';
 
 const Az_clone = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

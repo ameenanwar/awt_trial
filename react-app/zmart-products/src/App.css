@@ -46,3 +46,26 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 12px;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
