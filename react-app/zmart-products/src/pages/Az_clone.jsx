@@ -38,22 +38,23 @@ const Az_clone = () => {
       </button>
 
       {/* Sidebar fixed to the left */}
-      <div
-        style={{
-          position: 'fixed',
-          top: '60px', // same as menu button
-          left: sidebarOpen ? '0' : '-200px', // hide/show
-          width: '200px',
-          height: '100%',
-          backgroundColor: 'rgba(109, 75, 75, 0.95)',
-          transition: 'left 0.3s ease',
-          zIndex: 1000,
-          paddingTop: '10px',
-          overflowY: 'auto'
-        }}
-      >
-        <Side_bar />
-      </div>
+<div
+  style={{
+    position: 'fixed',
+    top: '60px',
+    left: sidebarOpen ? '0' : '-200px',
+    width: '200px',
+    height: '100%',
+    backgroundColor: 'rgba(109, 75, 75, 0.95)',
+    transition: 'left 0.3s ease',
+    zIndex: 1000,
+    paddingTop: '10px',
+    overflowY: 'auto'
+  }}
+>
+  <Side_bar closeSidebar={() => setSidebarOpen(false)} />
+</div>
+
 
       {/* Main content */}
       <div style={{ marginTop: '20px', marginLeft: '10px', paddingLeft: '220px' }}>
@@ -94,30 +95,34 @@ const Az_clone = () => {
             <span className="carousel-control-next-icon"></span>
           </button>
         </div>
+{/* Products */}
+<div className="container my-4">
+  <h3 className="mb-3">Best Sellers</h3>
+  <div className="row row-cols-1 row-cols-md-4 g-4">
+    {[
+      'Product 1', 'Product 2', 'Product 3', 'Product 4',
+      'Product 5', 'Product 6', 'Product 7'
+    ].map((product, idx) => (
+      <div className="col" key={idx}>
+        <div className="card h-100">
+          <img
+  src={`/zmart/img${idx + 1}.jpg`}
+  className="card-img-top"
+  alt={product}
+  style={{ height: '200px', objectFit: 'cover' }}
+/>
 
-        {/* Products */}
-        <div className="container my-4">
-          <h3 className="mb-3">Best Sellers</h3>
-          <div className="row row-cols-1 row-cols-md-4 g-4">
-            {['Product 1', 'Product 2', 'Product 3', 'Product 4'].map((product, idx) => (
-              <div className="col" key={idx}>
-                <div className="card h-100">
-                  <img
-                    src={`https://picsum.photos/200?random=${idx}`}
-                    className="card-img-top"
-                    alt={product}
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{product}</h5>
-                    <p className="card-text">${(idx + 1) * 20}.99</p>
-                    <p>⭐⭐⭐⭐☆</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="card-body">
+            <h5 className="card-title">{product}</h5>
+            <p className="card-text">₹{(idx + 9) * 20}.99</p>
+            <p>⭐⭐⭐⭐☆</p>
           </div>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
         {/* Footer */}
         <footer className="bg-dark text-white text-center py-3">

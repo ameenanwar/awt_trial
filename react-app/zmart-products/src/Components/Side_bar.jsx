@@ -1,8 +1,11 @@
-const Side_bar = () => {
+import React from "react";
+import { Link } from "react-router-dom"; // ✅ Needed for <Link>
+
+const Side_bar = ({ closeSidebar }) => { // ✅ receive function from parent
   const main = {
     backgroundColor: "#26667F",
     width: "200px",
-    height: "100%", // let parent control height
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
@@ -13,7 +16,6 @@ const Side_bar = () => {
   const category = {
     color: "white",
     width: "100%",
-   
   };
 
   const ul = {
@@ -32,30 +34,69 @@ const Side_bar = () => {
     fontFamily: '"Times New Roman", Times, serif',
     transition: "color 0.2s ease",
   };
-  const close={
-    top:"auto",
-    marginLeft:"130px",
-    height:"20px",
-    fontSize:"30px"
-}
+
+  const close = {
+    top: "auto",
+    marginLeft: "130px",
+    height: "20px",
+    fontSize: "10px",
+    cursor: "pointer", // ✅ for pointer on hover
+  };
 
   return (
     <div style={main}>
       <div style={category}>
         <h3 style={{ borderBottom: "1px solid white", paddingBottom: "8px" }}>
-          <button style={close} >X</button>
+          <button style={close} onClick={closeSidebar}> {/* ✅ Close logic */}
+            X
+          </button>
         </h3>
         <ul style={ul}>
-          <li><a style={link} href="">Mobiles, Computers</a></li>
-          <li><a style={link} href="">Sports, Fitness, Bags, Luggage</a></li>
-          <li><a style={link} href="">TV, Appliances, Electronics</a></li>
-          <li><a style={link} href="">Men's Fashion</a></li>
-          <li><a style={link} href="">Women's Fashion</a></li>
-          <li><a style={link} href="">Home, Kitchen, Pets</a></li>
-          <li><a style={link} href="">Beauty, Health, Grocery</a></li>
-          <li><a style={link} href="">Toys, Baby Products, Kids' Fashion</a></li>
-          <li><a style={link} href="">Books</a></li>
-          <li><a style={link} href="">Music & Video Games</a></li>
+          <li>
+            <Link style={link} to="/gadgets">
+              Gadgets
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/groceries">
+              Grocery
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/books">
+              Books
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/mens-fashion">
+              Men's Fashion
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/womens-fashion">
+              Women's Fashion
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/home-kitchen-pets">
+              Home, Kitchen, Pets
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/beauty-health">
+              Beauty, Health, Grocery
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/toys-baby">
+              Toys, Baby Products, Kids' Fashion
+            </Link>
+          </li>
+          <li>
+            <Link style={link} to="/music-games">
+              Music & Video Games
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
